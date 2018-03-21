@@ -1,0 +1,11 @@
+#create {
+    background-color: white;
+    border: 3px solid black;
+    padding: 20px;
+}
+.edit {
+    background-color: white;
+    border: 3px solid black;
+    padding: 20px;
+    margin: 5px 0;
+}

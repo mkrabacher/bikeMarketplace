@@ -1,0 +1,20 @@
+<img src="{{bike.img_url}}" alt="img">
+<form style="display:inline-block" (submit)="updateBikeThroughService()">
+    <label for="bike.img_url">Image Url:
+        <input type="text" name="bike.img_url" id="bike.img_url" [(ngModel)]="bike.img_url">
+    </label><br>
+    <label for="bike.title">Title:
+        <input type="text" name="bike.title" id="bike.title" [(ngModel)]="bike.title">
+    </label><br>
+    <label for="bike.description">Description:
+        <input type="text" name="bike.description" id="bike.description" [(ngModel)]="bike.description">
+    </label><br>
+    <label for="bike.price">Price:
+        <input type="text" name="bike.price" id="bike.price" [(ngModel)]="bike.price">
+    </label><br>
+    <label for="bike.location">Location:
+        <input type="text" name="bike.location" id="bike.location" [(ngModel)]="bike.location">
+    </label><br>
+    <input type="submit" value="Update">
+    <button (click)="deleteBikeThroughService(bike._id)">Delete</button>
+</form>

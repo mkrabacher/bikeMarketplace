@@ -1,0 +1,20 @@
+<div style="background-color:white; border: 3px soild black; padding: 10px">
+    <h3 *ngIf="!bikes">No Bikes to display</h3>
+    <input placeholder="search.." *ngIf="bikes" type="text" name="searchTerm" id="registerUser-fName" [(ngModel)]="searchTerm" required minlength="3"
+    #fName="ngModel">
+    <div class="bike" *ngFor="let bike of bikes">
+        <div *ngIf="bike.title.includes(searchTerm)">
+            <img src="{{bike.img_url}}" alt="img">
+            <div style="display:inline-block">
+                <h1>{{bike.title}}</h1>
+                <p>{{bike.description}}</p>
+            </div>
+            <div style="display:inline-block">
+                <h1>{{bike.price}}</h1>
+                <p>{{bike.location}}</p>
+                <button *ngIf="loggedUser._id == bike._user" (click)=deleteBikeThroughService(bike) class="delete-btn">Delete</button>
+                <button *ngIf="loggedUser._id != bike._user" (click)=contactThroughService(bike._user) class="contact-btn">Contact</button>
+            </div>
+        </div>
+    </div>
+</div>

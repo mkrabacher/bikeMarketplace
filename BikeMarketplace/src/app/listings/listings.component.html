@@ -1,0 +1,30 @@
+<h1>Create Listing</h1>
+{{newBike | json}}
+<div id="create">
+    <form style="display:inline-block" (submit)="addBikeThroughService()">
+        <label for="newBike.imgUrl">Image Url:
+            <input type="text" name="newBike.imgUrl" id="newBike.imgUrl" [(ngModel)]="newBike.imgUrl">
+        </label><br>
+        <label for="newBike.title">Title:
+            <input type="text" name="newBike.title" id="newBike.title" [(ngModel)]="newBike.title">
+        </label><br>
+        <label for="newBike.description">Description:
+            <input type="text" name="newBike.description" id="newBike.description" [(ngModel)]="newBike.description">
+        </label><br>
+        <label for="newBike.price">Price:
+            <input type="text" name="newBike.price" id="newBike.price" [(ngModel)]="newBike.price">
+        </label><br>
+        <label for="newBike.location">Location:
+            <input type="text" name="newBike.location" id="newBike.location" [(ngModel)]="newBike.location">
+        </label><br>
+        <input type="submit" value="Create">
+    </form>
+    <img style="display:inline-block; width: 200px;" src="{{newBike.imgUrl}}" alt="img">
+</div>
+<div>
+    <h1>Edit/Delete Bikes</h1>
+    <h3 *ngIf="!userBikes">No bieks to display</h3>
+    <div class="edit" *ngFor="let bike of userBikes">
+        <app-edit-bike [bike]="bike"></app-edit-bike>
+    </div>
+</div>
